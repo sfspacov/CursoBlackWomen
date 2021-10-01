@@ -1,57 +1,70 @@
 <html>
 	<head>
-		<meta name="description" content="Ao escrever uma meta tag, use entre 140 e 160 caracteres para que o Google possa exibir toda a sua mensagem. Não se esqueça de incluir sua palavra-chave!">
+		<meta name="Crud Usuario" content="Esta é uma pagina de cadastro de usuarios feita de curso Devs Divas">
 		</meta>
 		<title>
-			Black Women IT
+			Crud de Usuários
 		</title>
-		<scripts></scripts>
-		<link />
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+		<style>
+			#divFormulario
+			{
+				text-align:center;
+				background-color:blue
+			}
+			#divTable
+			{				
+				background-color:olive
+			}
+		</style>
 	</head>
 	<body>
-		<div id="formulario" >
+		<div id="divFormulario">
 			<br><br>
-			Nome: <input type="text" />
-			<br /><br />
-			CPF: <input type="text" />
-			<br /><br />
+			<div>
+				Nome: <input type="Text" />			
+				<br><br>
+				<div style="background-color:green">
+					CPF: <input type="Text" maxlength="14" />
+				</div>
+				<br><br>
+			</div>
 			UF:
 			<select>
-			  <option value="MG">Minas Gerais</option>
-			  <option value="AM">Amazonas</option>
-			  <option value="PB">Paraiba</option>		  
+				<option value="1">Alagoas</option>
+				<option value="2">Amazonas</option>
 			</select>
-			<br /><br />
+			<br><br>
 			Cidade:
 			<select>
-			  <option value="1">Belo Horizonte</option>
-			  <option value="2">Manaus</option>
-			  <option value="3">João Pessoa</option>		  
+				<option value="1">Maceió</option>
+				<option value="2">Manaus</option>
 			</select>
-			<br /><br />
-			<input type="button" value="Input type button"/>
-			<button>Tag Button</button>
+			<br><br>
+			<input style="background-color:green" type="button" value="Salvar" />
+			<button style="background-color:red">Cancelar</button>
 			<br><br>
 		</div>
 		
-		<div>
-		<table border='1' style="border-collapse:collapse; border: 1px solid black;">
-			<tr style="background-color:blue; color:white">
-				<th>Company</th>
-				<th>Contact</th>
-				<th>Country</th>
-			</tr>
-			<tr>
-				<td>Alfreds Futterkiste</td>
-				<td>Maria Anders</td>
-				<td>Germany</td>
-			</tr>
-			<tr>
-				<td>Centro comercial Moctezuma</td>
-				<td>Francisco Chang</td>
-				<td>Mexico</td>
-			</tr>
-		</table>
+		
+		<div id="divTable" >
+		
+			<table border='1' style="
+					border-collapse:collapse; 
+					border: 1px solid black;
+					margin-left: auto;
+					margin-right: auto;
+			">
+				<tr>
+					<th>Nome</th><th>CPF</th><th>Cidade</th>
+				</tr>
+				<tr>
+					<td>Talita</td><td>124.157.879-48</td><td>São José dos Campos</td>
+				</tr>
+				<tr>
+					<td>Carla</td><td>333.157.879-48</td><td>Sapopemba Z/L</td>
+				</tr>
+			</table>
 		</div>
 	</body>
 </html>
