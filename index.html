@@ -2,35 +2,25 @@
 	<head>
 		<meta name="Crud Usuario" content="Esta é uma pagina de cadastro de usuarios feita de curso Devs Divas">
 		</meta>
+		<link type="text/css" rel="stylesheet" href="index.css" />
 		<title>
 			Crud de Usuários
 		</title>
-		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
-		<style>
-			#divFormulario
-			{
-				text-align:center;
-				background-color:blue
-			}
-			#divTable
-			{				
-				background-color:olive
-			}
-		</style>
 	</head>
-	<body>
+	<body class="estilo-fontes" >
 		<div id="divFormulario">
-			<br><br>
+			<br>
+			<br>
 			<div>
-				Nome: <input type="Text" />			
+				Nome: <input id="txtNome" class="corDeFundoVermelho" type="Text" />			
 				<br><br>
-				<div style="background-color:green">
-					CPF: <input type="Text" maxlength="14" />
+				<div>
+				CPF: <input id="txtCpf" style=""  class="corDeFundoVermelho"  type="Text" maxlength="14" />
 				</div>
 				<br><br>
 			</div>
 			UF:
-			<select>
+			<select class="corDeFundoVermelho">
 				<option value="1">Alagoas</option>
 				<option value="2">Amazonas</option>
 			</select>
@@ -41,24 +31,18 @@
 				<option value="2">Manaus</option>
 			</select>
 			<br><br>
-			<input style="background-color:green" type="button" value="Salvar" />
-			<button style="background-color:red">Cancelar</button>
-			<br><br>
-		</div>
+			<input type="button" value="Salvar" />
+			<button id="btnCancelar">Cancelar</button>
+			<br>
+			<br>
+		</div>		
+		<div id="divTabela" >
 		
-		
-		<div id="divTable" >
-		
-			<table border='1' style="
-					border-collapse:collapse; 
-					border: 1px solid black;
-					margin-left: auto;
-					margin-right: auto;
-			">
+			<table class="vermelha">
 				<tr>
 					<th>Nome</th><th>CPF</th><th>Cidade</th>
 				</tr>
-				<tr>
+				<tr style="background-color:gold">
 					<td>Talita</td><td>124.157.879-48</td><td>São José dos Campos</td>
 				</tr>
 				<tr>
