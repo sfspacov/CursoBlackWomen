@@ -1,25 +1,76 @@
 function finalizarCompra()
-{	
-	let usuario = retornarUsuario();
-	let compra = retornarCompras();
-	let msg = 
-				"Usuario: " + usuario + "\n" +
-				"Compra: " + compra;
+{
+	let meusArrays = retornaArray();
 	
-	console.log(msg);
+	console.log(meusArrays);
 }
 
 function retornarUsuario()
 {
-	let nome = 'Jessica'; 	//string
-	let idade = 24;			//int	
+	let usuario = 
+	{
+		nome: "Milena",
+		email: "milena@gmail.com",
+		cpf: "178.187.147-81",
+		idade: 20,
+		peso:
+		{
+			valor: 54.70,
+			unidade: "kg"
+		},
+		sangue: 
+		{
+			tipo: "A",
+			rh: "+"
+		}
+	}
 	
-	return nome + ', ' + idade;
+	return usuario;
 }
 
-function retornarCompras()
+function retornaArray()
 {
-	let produto = 'PlayStation 5'
+	let produtos = [ "PS5", "Mouse optico", "Rayban", "Boné" ];
+	let notasP1 = [ 10, 8.5, 0, 2.3, 5 ];
+	let usuarios = 
+	[
+		{
+			nome: "Ana Paula",
+			idade: 30,
+			sangue: 
+			{
+				tipo: "A",
+				rh: "+"
+			}
+		},
+		{
+			nome: "Irani",
+			idade: 25,
+			sangue:
+			{
+				tipo: "O",
+				rh: "-"
+			}
+		},
+		{
+			nome: "Verônica",
+			idade: 25,
+			sangue:
+			{
+				tipo: "AB",
+				rh: "+"
+			}
+		}
+	];	
+	let listaSemTipo = ["string", 1, {}, []];
 	
-	return produto;
+	let retornoDaFuncao =
+	{
+		listaDeProdutos: produtos,
+		listaDeNotas: notasP1,
+		listaDeUsuarios: usuarios,
+		listaMaluca: listaSemTipo
+	}
+	
+	return  retornoDaFuncao
 }
