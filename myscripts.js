@@ -1,4 +1,4 @@
-function finalizarCompra()
+function retornarUsuarios()
 {
 	let meusArrays = retornaArray();
 	console.log(meusArrays);
@@ -134,42 +134,37 @@ function retornaArray()
 	let usuarios = 
 	[
 		{
+			nome: "Angela",
+			email: "angela@gmail.com",
+			saldoDevedor: 0
+		},
+		{
 			nome: "Ana Paula",
-			idade: 30,
-			sangue: 
-			{
-				tipo: "A",
-				rh: "+"
-			}
+			email: "anapaula@gmail.com",
+			saldoDevedor: -100
+		},
+		{
+			nome: "Carla",
+			email: "carla@gmail.com",
+			saldoDevedor: -200
 		},
 		{
 			nome: "Irani",
-			idade: 25,
-			sangue:
-			{
-				tipo: "O",
-				rh: "-"
-			}
-		},
-		{
-			nome: "Verônica",
-			idade: 25,
-			sangue:
-			{
-				tipo: "AB",
-				rh: "+"
-			}
+			email: "irani@gmail.com",
+			saldoDevedor: 0
 		}
 	];
 
 	let listaSemTipo = ["string", 1, {}, []];
 	
-	let retornoDaFuncao =
+	//Loop normal	
+	for (let i = 0; i < tamanho ; i++)
 	{
-		listaDeProdutos: produtos,
-		listaDeNotas: notasP1,
-		listaDeUsuarios: usuarios,
-		listaMaluca: listaSemTipo
+		if (usuarios[i].saldoDevedor < 0)
+		{			
+			//envio de email
+			enviarEmail(usuarios[i]);
+		}
 	}
 	
 	return retornoDaFuncao;
