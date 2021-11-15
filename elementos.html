@@ -1,0 +1,52 @@
+<html>
+<head>
+	<title>Elementos</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<div class="container">
+		<br />
+		<form name="formUsuario">
+			<div class="row">
+				<div class="col-2">
+					<label>Nome:</label>
+				</div>
+				<div class="col-4">
+					<input type="text" id="txtNome" name="txtNome" class="form-control" />
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-2">
+					<label>Gênero:</label>
+				</div>
+				<div class="col-4">
+					<input type="radio" name="rdGenero" id="rdGenero_m" value="masculino" /> Masculino
+					<br />
+					<input type="radio" name="rdGenero" id="rdGenero_f" value="feminino" /> Feminino
+					<br />
+					<input type="radio" name="rdGenero" id="rdGenero_o" value="outros" /> Outros
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-2">
+					<label>Sobre:</label>
+				</div>
+				<div class="col-4">
+					<textarea id="txtSobre" name="txtSobre" cols="40" rows="5" class="form-control"></textarea>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-6">
+					<div style="cursor:pointer" onclick="carregar()" class="btn btn-info">Carregar</div>
+					<div style="cursor:pointer" onclick="enviar()" class="btn btn-success">Enviar</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script src="elementos.js"></script>
+</body>
+</html>
