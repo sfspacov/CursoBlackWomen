@@ -25,5 +25,23 @@ namespace CrudApi.Controllers
         {
             return "Oi";
         }
+
+        [HttpPost]
+        public string Post()
+        {
+            return "Oi";
+        }
+
+        [HttpPut]
+        public string Put()
+        {
+            return "Oi";
+        }
+
+        [HttpDelete]
+        public string Delete()
+        {
+            return "Oi";
+        }
     }
 }
