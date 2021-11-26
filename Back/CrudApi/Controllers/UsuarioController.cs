@@ -10,7 +10,7 @@ namespace CrudApi.Controllers
     public class UsuarioController : ControllerBase
     {
         [HttpPut] 
-        public string Put()
+        public string Put(UsuarioDto usuario)
         {
             return "Put";
         }
@@ -23,25 +23,25 @@ namespace CrudApi.Controllers
             {
                 Cpf = "111.111.111-11",
                 Nome = "Ana",
-                NomeCidade = "Sum Paulo"
+                Cidade = "Sum Paulo"
             };
             var u2 = new UsuarioDto()
             {
                 Cpf = "211.111.111-11",
                 Nome = "Mengão",
-                NomeCidade = "Rio"
+                Cidade = "Rio"
             };
             var u3 = new UsuarioDto
             {
                 Cpf = "311.111.111-11",
                 Nome = "Milena",
-                NomeCidade = "Sum Paulo"
+                Cidade = "Sum Paulo"
             };
             var u4 = new UsuarioDto
             {
                 Cpf = "411.111.111-11",
                 Nome = "Veronica",
-                NomeCidade = "Osasco"
+                Cidade = "Osasco"
             };
             usuarios.Add(u1);
             usuarios.Add(u2);
@@ -52,13 +52,13 @@ namespace CrudApi.Controllers
         }
 
         [HttpPost]
-        public string Post()
+        public string Post(UsuarioDto usuario)
         {
             return "Post";
         }
 
         [HttpDelete]
-        public string Delete()
+        public string Delete(int cpf)
         {
             return "Delete";
         }
