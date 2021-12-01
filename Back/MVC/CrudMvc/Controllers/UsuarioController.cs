@@ -1,14 +1,17 @@
-﻿using System.Collections.Generic;
-using CrudApi.Dto;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using CrudMvc.Dto;
 
-namespace CrudApi.Controllers
+namespace CrudMvc.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class UsuarioController : ControllerBase
+    public class UsuarioController : Controller
     {
-        [HttpPut] 
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpPut]
         public string Put(UsuarioDto usuario)
         {
             return "Put";
@@ -61,5 +64,6 @@ namespace CrudApi.Controllers
         {
             return "Delete";
         }
+
     }
 }
