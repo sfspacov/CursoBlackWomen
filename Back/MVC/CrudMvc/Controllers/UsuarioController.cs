@@ -12,8 +12,11 @@ namespace CrudMvc.Controllers
         }
 
         [HttpPut]
-        public string Put(UsuarioDto usuario)
+        public string Put([FromBody] UsuarioDto usuario)
         {
+            //Busca na base de dados pelo usuario do cpf
+            //userEntity.name = usuario.name
+            //Save()
             return "Put";
         }
 
@@ -54,7 +57,7 @@ namespace CrudMvc.Controllers
         }
 
         [HttpPost]
-        public string Post(UsuarioDto usuario)
+        public string Post([FromBody] UsuarioDto usuario)
         {
             return "Post";
         }
