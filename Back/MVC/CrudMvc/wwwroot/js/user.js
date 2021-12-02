@@ -15,32 +15,28 @@ function cancelDelete() {
     cpfDelete = null;
 }
 
-async function confirmDelete() {
-    const url = "/Usuario/Delete?cpf=" + cpfDelete;
+async function confirmDelete(cpf) {
+    const url = "/User/DeleteByCpf?cpf=" + cpf;
 
-    showModalLoading();
+    //showModalLoading();
 
-    await fetch(url,
-        {
-            method: "DELETE",
-        })
+    await fetch(url, { method: "DELETE" })
         .then(response => {
             if (!response.ok)
                 throw Error(response.statusText);
             return response;
         })
         .then(response => {
-            toastrSuccess('Item deletado com sucesso!!');
+            alert('Item deletado com sucesso!!');
             $('#tbUsers').DataTable().destroy();
             loadUsers();
         })
         .catch(function () {
-            toastrSuccess('Não foi possível deletar este item. Tente novamente!');
+            alert('Não foi possível deletar este item. Tente novamente!');
             hideModalLoading();
         })
         .finally(function () {
-            hideModalLoading();
-            cancel();
+            //hideModalLoading();
         });
 }
 
@@ -73,40 +69,47 @@ function edit(cpf) {
 
 async function loadUsers() {
     const createTable = function (data) {
+        debugger;
         users = [];
         $.each(data, function (key, obj) {
             let row = [obj.name, obj.cpf, obj.city, obj.idCity, obj.idUf];
             users.push(row);
         });
 
-        $('#tbUsers').DataTable({
-            order: [[0, "asc"]],
-            data: users,
-            "lengthMenu": [[5, 10, -1], [5, 10, "Tudo"]],
-            columns: [
-                { title: "Nome" },
-                { title: "CPF" },
-                { title: "Cidade" },
-                {
-                    data: null,
-                    orderable: false,
-                    render: function (data, type, row) {
-                        return '<img onclick="edit(\'' + data[1] + '\')" style="cursor:pointer" src="../img/edit-icon.png" width="20" /> ' +
-                            '<img style="cursor:pointer" onclick="deleteUser(\'' + data[1] + '\')" src="../img/delete-icon.png" width="20" />';
-                    }
-                },
-            ],
-            language: {
-                url: 'https://cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese-Brasil.json'
+        $('#tbUsers').DataTable(
+            {
+                order: [[0, "asc"]],
+                data: users,
+                lengthMenu: [[3, 5, 10, -1], [3, 5, 10, "Tudo"]],
+                columns: [
+                    {
+                        title: "Nome"
+                    },
+                    {
+                        title: "CPF"
+                    },
+                    {
+                        title: "Cidade"
+                    },
+                    {
+                        data: null,
+                        orderable: false,
+                        render: function (data, type, row) {
+                            return '<img onclick="edit(\'' + data[1] + '\')" style="cursor:pointer" src="../img/edit-icon.png" width="20" /> ' +
+                                '<img style="cursor:pointer" onclick="confirmDelete(\'' + data[1] + '\')" src="../img/delete-icon.png" width="20" />';
+                        }
+                    },
+                ],
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese-Brasil.json'
+                }
             }
-        });
+        );
     }
-    showModalLoading();
-    const url = "/Usuario/GetAll/"
-    await fetch(url,
-        {
-            method: "GET",
-        })
+    //    showModalLoading();
+    const url = "/User/List/";
+
+    await fetch(url, { method: "GET" })
         .then(response => {
             if (!response.ok)
                 throw Error(response.statusText);
@@ -115,10 +118,10 @@ async function loadUsers() {
         .then(data => data.json())
         .then(users => createTable(users))
         .catch(function (error) {
-            toastrError("Não foi possível carregar os usuários já cadastrados");
+            alert("Não foi possível carregar os usuários já cadastrados");
         })
         .finally(function () {
-            hideModalLoading();
+            //hideModalLoading();
         });
 }
 
@@ -128,11 +131,12 @@ async function save() {
     {
         name: $("#txtNome").val(),
         idUf: $("#comboUF").val(),
+        cpf: $("#txtCpf").val(),
         idCity: $("#comboCidade").val()
     }
 
     if (user.name == "" || user.cpf == "" || user.idCity == undefined) {
-        toastrError('Preencha todos os campos');
+        alert('Preencha todos os campos');
     }
     else {
         let existsUser = null;
@@ -164,36 +168,38 @@ async function save() {
 
         const urlParam = cpfEdit == null ? "Save" : "Update";
 
-        const url = "/Usuario/" + urlParam;
+        const url = "/User/" + urlParam;
 
         showModalLoading();
 
-        await fetch(url,
-            {
-                method: method,
-                body: JSON.stringify(user),
-                headers:
+        await fetch
+            (url,
                 {
-                    'Content-Type': 'application/json;charset=utf-8'
-                },
-            })
+                    method: method,
+                    body: JSON.stringify(user),
+                    headers:
+                    {
+                        'Content-Type': 'application/json;charset=utf-8'
+                    },
+                }
+            )
             .then(response => {
                 if (!response.ok)
                     throw Error(response.statusText);
                 return response;
             })
             .then(() => {
-                toastrSuccess('Item salvo com sucesso!');
+                alert('Item salvo com sucesso!');
                 $('#tbUsers').DataTable().destroy();
                 loadUsers();
                 cancel();
                 cpfEdit = null;
             })
             .catch(function (error) {
-                toastrError(error.responseText);
+                alert(error.responseText);
             })
             .finally(function () {
-                hideModalLoading();
+                //hideModalLoading();
             });
     }
 }

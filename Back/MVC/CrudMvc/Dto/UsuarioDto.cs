@@ -3,7 +3,9 @@
     public class UsuarioDto
     {
         public string Cpf { get; set; }
-        public string Nome { get; set; }
-        public string Cidade { get; set; }
+        public string Name { get; set; }
+        public string City { get; set; }
+        public int IdUf{ get; set; }
+        public int IdCity { get; set; }
     }
 }

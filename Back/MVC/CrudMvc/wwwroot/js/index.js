@@ -1,11 +1,8 @@
-﻿//loadUsers();
+﻿loadUsers();
 //loadUfs();
 
 //javascript NATIVO = Vanilla Javascript
 
-fetch('http://localhost:45628/usuario/get') //chamando uma api
-  .then(response => response.json()) //birunda
-  .then(
-			birunda => 
-			console.log(birunda)
-		);
+//fetch('http://localhost:45628/user/list') //chamando uma api
+//    .then(response => response.json())
+//    .then(data => console.log(data));
